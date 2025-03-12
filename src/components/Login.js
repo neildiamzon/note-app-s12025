@@ -2,11 +2,16 @@ import React from "react";
 import {baseUrl} from "../constants";
 import axios from "axios";
 import FormData from "form-data";
+import {useEffect} from "react";
 function Login() {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [message, setMessage] = React.useState("");
-
+    React.useEffect(() => {
+            if (localStorage.getItem("Token") !== null) {
+                window.location.href = "/logout";
+            };
+        }, []);
     function usernameChangeHandler(event) {
         setUsername(event.target.value);
     }
@@ -16,8 +21,10 @@ function Login() {
     }
 
     function login() {
-        if (username === "" || password === "") {
 
+
+
+        if (username === "" || password === "") {
             console.log("Login eror fields missing");
         } else {
             const FormData = require('form-data');
