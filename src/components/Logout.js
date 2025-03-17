@@ -5,9 +5,10 @@ import FormData from "form-data";
 import {useEffect} from "react";
 
 function Logout() {
-        const [error, setError] = React.useState("");
-        const FormData = require('form-data');
+    const [error, setError] = React.useState("");
+    const FormData = require('form-data');
     //localStorage.removeItem("Token");
+
     function logout() {
         let data = new FormData();
 
